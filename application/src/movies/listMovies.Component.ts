@@ -10,6 +10,7 @@ export class ListMoviesComponent {
     this.allMovies = JSON.parse(fs.readFileSync('./movies.json', 'utf8'));
   }
 
+  
   getRandomMovies(): any[] {
     let randomMovies = [];
     for (let i = 0; i < 10; i++) {
