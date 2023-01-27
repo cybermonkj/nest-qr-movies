@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-// const moviesJson = require('./movies.json');
-import moviesJson from "./movies.json";
-// const movies = moviesJson;
+import * as moviesJson from './movies.json';
 
 @Injectable()
 export class MoviesService {

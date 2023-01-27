@@ -1,23 +1,22 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { ListMoviesComponent } from './listMovies.Component';
 import { QRCode } from 'qrcode';
+import { MoviesService } from './MoviesService';
 
 @Controller('movies')
 export class MoviesController {
+    [x: string]: any;
     getRandomMovies: any;
-    constructor(private  ListmoviesComponent: ListMoviesComponent) { }
+    constructor(private  ListmoviesComponent: ListMoviesComponent, MoviesService: MoviesService) { }
 
     @Get('list')
     async displayMoviesList(@Res() res) {
-        const movies = await this.getMovies();
+        const movies = await this.getRandomMovies();
         res.render('movies', {movies: this.ListmoviesComponent.getRandomMovies});
     }
-    getMovies() {
-        throw new Error('Method not implemented.');
-    }
-        //...
+
     @Get()
-    async displayQRCode(@Res()res) {
+    async displayQRCode(@Res()res): Promise<void> {
         const movies = await this.getRandomMovies();
         const qr = new QRCode(JSON.stringify({movies}));
         const qr_svg = qr.svg();
