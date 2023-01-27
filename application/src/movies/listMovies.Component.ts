@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
 
 @Injectable()
 export class ListMoviesComponent {
 
   private allMovies: any;
-
+  
   constructor() {
-    this.allMovies = JSON.parse(fs.readFileSync('./movies.json', 'utf8'));
+    this.allMovies
   }
 
   

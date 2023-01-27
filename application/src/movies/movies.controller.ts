@@ -1,7 +1,6 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { ListMoviesComponent } from './listMovies.Component';
 import { QRCode } from 'qrcode';
-import { AppController } from '../app.controller';
 
 @Controller('movies')
 export class MoviesController {
